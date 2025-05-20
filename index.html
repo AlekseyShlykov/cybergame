@@ -2,24 +2,7 @@
 <html data-init="no-js">
 <head>
 <meta charset="UTF-8" />
-
-
-	<title>Cybersecurity in Web3</title>
-
-<!-- Open Graph -->
-<meta property="og:title" content="Cybersecurity in Web3">
-<meta property="og:description" content="An interactive journey through the basics of cybersecurity in Web3">
-<meta property="og:image" content="assets/preview.png">
-<meta property="og:type" content="website">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cybersecurity in Web3">
-<meta name="twitter:description" content="An interactive journey through the basics of cybersecurity in Web3">
-<meta name="twitter:image" content="assets/preview.png">
-
-<link rel="icon" type="image/png" href="assets/favicon.png">
-	
+<title>Cybersecurity</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="application-name" content="SugarCube" />
 <meta name="version" content="2.37.3" />
@@ -515,23 +498,29 @@ tw-expression{
     if (!$('#myFooter').length) {
         $('body').append(`
             <div id="myFooter">
-                <button id="soundButton">
-                    <img src="assets/soundoff.png" style="width: 40px; height: 27px;">
-                </button>
-                <div id="dots">
-                    <span class="dot" id="dot1"></span>
-                    <span class="dot" id="dot2"></span>
-                    <span class="dot" id="dot3"></span>
-                    <span class="dot" id="dot4"></span>
-                    <span class="dot" id="dot5"></span>
-                    <span class="dot" id="dot6"></span>
-                    <span class="dot" id="dot7"></span>
-                    <span class="dot" id="dot8"></span>
-                </div>
-                <button id="emailButton">
-                    <img src="assets/letter.png" style="width: 40px; height: 27px;">
-                </button>
-            </div>
+                 <!-- Левая часть: кнопка звука -->
+    <div id="footerLeft">
+      <button id="soundButton" style="font-size: 22px; background: none; border: none; cursor: pointer;">🔇</button>
+    </div>
+               <!-- Центр: точки -->
+    <div id="dots" style="display: flex; gap: 5px;">
+      <span class="dot" id="dot1"></span>
+      <span class="dot" id="dot2"></span>
+      <span class="dot" id="dot3"></span>
+      <span class="dot" id="dot4"></span>
+      <span class="dot" id="dot5"></span>
+      <span class="dot" id="dot6"></span>
+      <span class="dot" id="dot7"></span>
+      <span class="dot" id="dot8"></span>
+    </div>
+    
+    
+               <!-- Правая часть: соцсети + надпись -->
+    <div id="footerRight" style="display: flex; align-items: center; gap: 15px;">
+      <a href="https://ston.fi" target="_blank" style="font-size: 14px; color: #555; text-decoration: none;">Powered by STON.fi</a>
+    </div>
+    
+    
             <!-- Элемент аудио -->
             <audio id="backgroundMusic" loop>
                 <source src="assets/music.mp3" type="audio/mpeg">
@@ -555,12 +544,12 @@ tw-expression{
 
 // Функция для обновления иконки звука
 function updateSoundIcon() {
-    const soundIcon = $('#soundButton img');
-    if (State.variables.soundOn) {
-        soundIcon.attr('src', 'assets/soundon.png'); // Замените на путь к изображению для включённого звука
-    } else {
-        soundIcon.attr('src', 'assets/soundoff.png'); // Замените на путь к изображению для выключённого звука
-    }
+  const $soundButton = $('#soundButton');
+  if (State.variables.soundOn) {
+    $soundButton.text('🔈');
+  } else {
+    $soundButton.text('🔇');
+  }
 }
 
 // Функция для включения/выключения музыки
