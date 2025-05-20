@@ -2,23 +2,7 @@
 <html data-init="no-js">
 <head>
 <meta charset="UTF-8" />
-<title>Cybersecurity in Web3</title>
-
-<!-- Open Graph -->
-<meta property="og:title" content="Cybersecurity in Web3">
-<meta property="og:description" content="An interactive journey through the basics of cybersecurity in Web3">
-<meta property="og:image" content="assets/preview.png">
-<meta property="og:type" content="website">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cybersecurity in Web3">
-<meta name="twitter:description" content="An interactive journey through the basics of cybersecurity in Web3">
-<meta name="twitter:image" content="assets/preview.png">
-
-<link rel="icon" type="image/png" href="assets/favicon.png">
-	
-
+<title>Cybersecurity</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="application-name" content="SugarCube" />
 <meta name="version" content="2.37.3" />
@@ -292,6 +276,122 @@ tw-passage{ padding-top:3em; }
   border-color: #767676;
   box-shadow: 0 0 8px #999999;
 }
+
+
+
+
+/* — Терминальный стиль для сетки — */
+#grid {
+  position: relative;
+  width: 50%;
+  height: 0;
+  padding-top: 50%;      
+  margin: 1em auto;
+  /* неоновая рамка и фон терминала */
+  border: 1px solid #ffffff;
+  background: rgba(0, 30, 0, 0.8);
+  font-family: "Helvetica";
+}
+
+/* — Оси — */
+#grid::before,
+#grid::after {
+  content: "";
+  position: absolute;
+  background: #ffffff;
+}
+#grid::before { /* вертикальная ось */
+  left: 50%; top: 0;
+  width: 2px; height: 100%;
+  transform: translateX(-50%);
+}
+#grid::after { /* горизонтальная ось */
+  top: 50%; left: 0;
+  width: 100%; height: 2px;
+  transform: translateY(-50%);
+}
+
+/* — Четыре квадранта (тонкие зелёные заливки) — */
+/* Общий стиль для квадрантов */
+#grid .quad {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  z-index: 0;
+}
+
+/* Квадрант 1 - нежно-розовый */
+#grid .q1 {
+  top: 0;
+  left: 0;
+  background: rgba(255, 199, 186, 0.5); /* нежно-розовый */
+}
+
+/* Квадрант 2 - светло-лососевый */
+#grid .q2 {
+  top: 0;
+  left: 50%;
+  background: rgba(220, 223, 156, 0.5); /* светло-лососевый */
+}
+
+/* Квадрант 3 - мятно-зелёный */
+#grid .q3 {
+  top: 50%;
+  left: 0;
+  background: rgba(186, 255, 201, 0.5); /* мятно-зелёный */
+}
+
+/* Квадрант 4 - бэби-блю */
+#grid .q4 {
+  top: 50%;
+  left: 50%;
+  background: rgba(186, 225, 255, 0.5); /* бэби-блю */
+}
+
+
+/* — Подписи осей — */
+#grid .xlabel,
+#grid .ylabel {
+  position: absolute;
+  font-family: "Helvetica";
+  font-size: 0.9em;
+  color: #ffffff;
+  pointer-events: none;
+}
+#grid .xlabel.left   { left:  0;    top: 50%; transform: translate(-100%,-50%); }
+#grid .xlabel.right  { right: 0;    top: 50%; transform: translate(100%,-50%); }
+#grid .ylabel.top    { top:   0;    left:50%; transform: translate(-50%,-100%); }
+#grid .ylabel.bottom { bottom:0;    left:50%; transform: translate(-50%,100%); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* — Точка на графике — */
+#point {
+  position: absolute;
+  width: 3%;              /* 3% от ширины контейнера */
+  aspect-ratio: 1 / 1;    /* круг сохраняет пропорции */
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+  box-shadow: 0 0 6px #ffffff;
+  z-index: 10;
+}
+
+
+tw-expression{
+  position: static !important;
  
 }
 
